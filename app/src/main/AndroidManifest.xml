@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,10 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MovieApp"
-        tools:targetApi="31">
+        android:theme="@style/Theme.MovieApp">
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:name=".Activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".ResetActivity"/>
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.ResetActivity" />
     </application>
 
 </manifest>
