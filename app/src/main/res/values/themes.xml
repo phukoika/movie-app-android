@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.MovieApp" parent="Base.Theme.MovieApp" />
+    <style name="MyTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:layout">@layout/activity_splash</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">true</item>
+    </style>
 </resources>

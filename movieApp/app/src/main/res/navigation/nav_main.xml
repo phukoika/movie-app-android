@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_homeapp"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.movieapp.ui.fragment.MainAcivityContent.HomePageFragment"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePageFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.movieapp.ui.fragment.MainAcivityContent.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_movieListFragment"
+            app:destination="@id/movieListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/likedFragment"
+        android:name="com.example.movieapp.ui.fragment.MainAcivityContent.LikedFragment"
+        android:label="fragment_liked"
+        tools:layout="@layout/fragment_liked" >
+        <action
+            android:id="@+id/action_likedFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seachFragment"
+        android:name="com.example.movieapp.ui.fragment.MainAcivityContent.SeachFragment"
+        android:label="fragment_seach"
+        tools:layout="@layout/fragment_seach" >
+        <action
+            android:id="@+id/action_seachFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.movieapp.ui.fragment.MainAcivityContent.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="result"
+            app:argType="com.example.movieapp.models.Result"
+         />
+        <action
+            android:id="@+id/action_detailFragment_to_castFragment2"
+            app:destination="@id/castFragment2" />
+        <action
+            android:id="@+id/action_detailFragment_to_videoFragment"
+            app:destination="@id/videoFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/castFragment2"
+        android:name="com.example.movieapp.ui.fragment.deitailTab.CastFragment"
+        android:label="fragment_cast"
+        tools:layout="@layout/fragment_cast" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.example.movieapp.ui.fragment.Categories.MovieListFragment"
+        android:label="fragment_movie_list"
+        tools:layout="@layout/fragment_movie_list" />
+    <fragment
+        android:id="@+id/videoFragment"
+        android:name="com.example.movieapp.ui.fragment.MainAcivityContent.VideoFragment"
+        android:label="fragment_video"
+        tools:layout="@layout/fragment_video" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+</navigation>

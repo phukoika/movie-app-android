@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashScreen2">
+
+    <fragment
+        android:id="@+id/startScreen"
+        android:name="com.example.movieapp.ui.fragment.StartScreen"
+        android:label="fragment_start_screen"
+        tools:layout="@layout/fragment_start_screen" >
+        <action
+            android:id="@+id/action_startScreen_to_signinScreen"
+            app:destination="@id/signinScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreen2"
+        android:name="com.example.movieapp.ui.fragment.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen2_to_startScreen"
+            app:destination="@id/startScreen"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splashScreen2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signinScreen"
+        android:name="com.example.movieapp.ui.fragment.SigninScreen"
+        android:label="fragment_signin_screen"
+        tools:layout="@layout/fragment_signin_screen" >
+        <action
+            android:id="@+id/action_signinScreen_to_signupScreen2"
+            app:destination="@id/signupScreen2" />
+        <action
+            android:id="@+id/action_signinScreen_to_profileScreen"
+            app:destination="@id/profileScreen" />
+        <action
+            android:id="@+id/action_signinScreen_to_mainActivity2"
+            app:destination="@id/mainActivity2" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupScreen2"
+        android:name="com.example.movieapp.ui.fragment.SignupScreen"
+        android:label="SignupScreen" >
+        <action
+            android:id="@+id/action_signupScreen2_to_signinScreen"
+            app:destination="@id/signinScreen" />
+
+        <action
+            android:id="@+id/action_signupScreen2_to_mainActivity2"
+            app:destination="@id/mainActivity2" />
+        <action
+            android:id="@+id/action_signupScreen2_to_profileSetupFragment"
+            app:destination="@id/profileSetupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileScreen"
+        android:name="com.example.movieapp.ui.fragment.ProfileScreen"
+        android:label="fragment_profile_screen"
+        tools:layout="@layout/fragment_profile_screen" >
+        <action
+            android:id="@+id/action_profileScreen_to_profileSetupFragment"
+            app:destination="@id/profileSetupFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileSetupFragment"
+        android:name="com.example.movieapp.ui.fragment.ProfileSetupFragment"
+        android:label="fragment_profile_setup"
+        tools:layout="@layout/fragment_profile_setup" >
+        <action
+            android:id="@+id/action_profileSetupFragment_to_mainActivity2"
+            app:destination="@id/mainActivity2" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity2"
+        android:name="com.example.movieapp.ui.MainActivity2"
+        android:label="activity_main2"
+        tools:layout="@layout/activity_main2" />
+
+</navigation>

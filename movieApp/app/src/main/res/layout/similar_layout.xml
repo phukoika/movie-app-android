@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/similaerLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/movieBanner"
+        android:src="@drawable/avaprofile1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="150dp"
+        android:scaleType="fitXY"
+        android:layout_margin="20dp"
+        android:elevation="10dp"
+        app:shapeAppearanceOverlay="@style/roundedImageView"
+        android:layout_height="200dp"/>
+</LinearLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    android:padding="30dp"
+    tools:context=".ui.fragment.ProfileScreen">
+
+    <ImageView
+        android:id="@+id/logoProfile"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_marvellogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/titleProfile"
+        app:layout_constraintTop_toBottomOf="@+id/logoProfile"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="Choose your avatar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <GridLayout
+        app:layout_constraintTop_toBottomOf="@+id/titleProfile"
+        android:layout_marginTop="20dp"
+        android:columnCount="2"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/profilebtn"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/avaprofile1"
+                android:layout_columnWeight="1"
+                />
+
+    </GridLayout>
+    <Button
+        android:id="@+id/submitProfile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Looks good"
+        android:backgroundTint="@color/redDefault"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

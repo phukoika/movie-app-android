@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    tools:context=".ui.fragment.StartScreen">
+    <FrameLayout
+        android:id="@+id/sliderContainer"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/startingImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/startimage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_marvellogo"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:lineHeight="25sp"
+            android:textFontWeight="@integer/material_motion_duration_medium_2"
+            android:text="All your favourite MARVEL Movies &amp; Series at one place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:paddingHorizontal="60dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="bottom|center_horizontal"/>
+    </FrameLayout>
+
+
+    <Button
+        android:id="@+id/startBtn"
+        app:layout_constraintTop_toBottomOf="@+id/sliderContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:text="Continue"
+        android:layout_marginHorizontal="40dp"
+        android:paddingVertical="20dp"
+        android:backgroundTint="@color/redDefault"
+        android:layout_height="wrap_content"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

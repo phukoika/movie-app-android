@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.MainAcivityContent.SeachFragment">
+
+
+    <EditText
+        android:background="@color/white"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="10dp"
+        android:id="@+id/searchEdit"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="Searching movie ...."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchEdit"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:spanCount="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
