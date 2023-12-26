@@ -15,7 +15,6 @@
             android:name=".Activities.LoginActivity"
             android:exported="false" />
         <activity
-            android:theme="@style/MyTheme.Splash"
             android:name=".Activities.SplashActivity"
             android:exported="true">
             <intent-filter>
