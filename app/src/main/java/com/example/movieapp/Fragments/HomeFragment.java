@@ -133,6 +133,7 @@ public class HomeFragment extends Fragment {
                     ListFilm items = gson.fromJson(response, ListFilm.class);
                     adapterBestMovies = new FilmListAdapter(items);
                     recyclerViewNowPlaying.setAdapter(adapterBestMovies);
+
                 },
                 error -> {
                     loading1.setVisibility(View.GONE);

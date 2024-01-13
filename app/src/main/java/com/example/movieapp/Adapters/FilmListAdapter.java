@@ -1,6 +1,7 @@
 package com.example.movieapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.movieapp.Activities.DetailFilmActivity;
 import com.example.movieapp.Models.ListFilm;
 import com.example.movieapp.R;
 
@@ -45,7 +47,11 @@ public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ViewHo
                 .apply(requestOptions)
                 .into(holder.img);
         Log.e("this:", items.getResults().get(position).getPosterPath());
-        holder.itemView.setOnClickListener(v -> Log.e("this:", "An error occurred: "));
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(holder.itemView.getContext(), DetailFilmActivity.class);
+            intent.putExtra("id", items.getResults().get(position).getId());
+            context.startActivity(intent);
+        });
     }
 
     @Override

@@ -26,6 +26,7 @@
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.RegisterActivity" />
         <activity android:name=".Activities.ResetActivity" />
+        <activity android:name=".Activities.DetailFilmActivity"/>
     </application>
 
 </manifest>
