@@ -3,6 +3,8 @@ package com.example.movieapp.Activities;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,9 +26,13 @@ import com.example.movieapp.Adapters.CategoryAdapter;
 import com.example.movieapp.Adapters.FilmListAdapter;
 import com.example.movieapp.Models.FilmItem;
 import com.example.movieapp.Models.ListFilm;
+import com.example.movieapp.Models.ListVideo;
+import com.example.movieapp.Models.Video;
 import com.example.movieapp.R;
 import com.example.movieapp.ultis.api;
 import com.google.gson.Gson;
+
+import java.util.List;
 
 public class DetailFilmActivity extends AppCompatActivity {
     private RequestQueue mRequestQueue;
@@ -39,6 +45,7 @@ public class DetailFilmActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapterCategory;
     private RecyclerView recyclerViewSimilar, recyclerViewCategory;
     private NestedScrollView scrollView;
+    private WebView webView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,17 +113,35 @@ public class DetailFilmActivity extends AppCompatActivity {
         tvRelease = findViewById(R.id.tvMovieTime);
         tvOverView = findViewById(R.id.tvOverView);
         scrollView = findViewById(R.id.scrollView2);
+        webView = findViewById(R.id.webView);
         recyclerViewSimilar = findViewById(R.id.viewSimilar);
         recyclerViewSimilar.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewCategory = findViewById(R.id.categoryView);
         recyclerViewCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        backImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        backImg.setOnClickListener(v -> finish());
+        loadVideoTrailer(idFilm);
+//        String video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/oAPRPQQeumA\" title=\"[FANCAM] - WXRDIE &amp; GANG | LIVE AT 1900 LE THÉÂTRE 12/01/2024 (FULL SHOW)\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
+//        webView.loadData(video, "text/html", "utf-8");
+//        webView.getSettings().setJavaScriptEnabled(true);
+//        webView.setWebViewClient(new WebViewClient());
 
+    }
+
+    private void loadVideoTrailer(int idFilm) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, api.BASE_URL + idFilm + "/videos?api_key=" + api.API_KEY, response -> {
+            Gson gson = new Gson();
+            ListVideo video = gson.fromJson(response, ListVideo.class);
+            List<Video> videoItem = video.getResults();
+            if (!videoItem.isEmpty()){
+                String key = videoItem.get(0).getKey();
+                String url = api.GET_META + key;
+                webView.loadUrl(url);
+                webView.getSettings().setJavaScriptEnabled(true);
+                webView.setWebViewClient(new WebViewClient());
+
+            }
+        }, error -> Log.i("TAG:", "Error:" + error.toString()));
+        Volley.newRequestQueue(this).add(stringRequest);
     }
 }

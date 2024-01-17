@@ -3,17 +3,25 @@ package com.example.movieapp.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.movieapp.Activities.LoginActivity;
 import com.example.movieapp.Activities.MainActivity;
 import com.example.movieapp.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,8 +29,13 @@ import com.google.firebase.auth.FirebaseAuth;
  * create an instance of this fragment.
  */
 public class ProfileFragment extends Fragment {
-    Button btnLogout;
+    Button btnSignOut;
     FirebaseAuth fAuth;
+    private FirebaseUser user;
+    private String email;
+    private TextView textEmail, textUsername;
+    FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -74,10 +87,23 @@ public class ProfileFragment extends Fragment {
     }
 
     private void initView(View view) {
-        btnLogout = view.findViewById(R.id.btnLogout);
+        btnSignOut = view.findViewById(R.id.btnSignOut);
         fAuth = FirebaseAuth.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        email = user.getEmail();
+        db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
+
+        textUsername = view.findViewById(R.id.textUsername);
+        textEmail = view.findViewById(R.id.textEmail);
+        textEmail.setText(email);
+        btnSignOut = view.findViewById(R.id.btnSignOut);
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String userId = currentUser.getUid();
+        getUserId(userId);
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 logOut();
@@ -90,5 +116,19 @@ public class ProfileFragment extends Fragment {
         Intent intent = new Intent(getContext(), LoginActivity.class);
         startActivity(intent);
         getActivity().finish();
+    }
+    private void getUserId(String userId) {
+        DocumentReference useRef =db.collection("users").document(userId);
+        useRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    String getUsernameById = task.getResult().getString("username");
+                    textUsername.setText(getUsernameById);
+                } else {
+                    textUsername.setText("Username");
+                }
+            }
+        });
     }
 }

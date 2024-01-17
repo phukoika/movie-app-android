@@ -107,7 +107,7 @@
             <TextView
                 android:id="@+id/tv1"
                 android:text="Overview"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_marginTop="4dp"
@@ -134,7 +134,7 @@
             <TextView
                 android:id="@+id/tvCategory"
                 android:text="Category"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins_medium"
@@ -152,7 +152,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvCategory"/>
-
+            <TextView
+                android:id="@+id/tvVideos"
+                android:layout_marginHorizontal="16dp"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Trailer"
+                app:layout_constraintTop_toBottomOf="@id/categoryView"
+                app:layout_constraintStart_toStartOf="@id/categoryView"
+                app:layout_constraintEnd_toEndOf="@id/categoryView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <WebView
+                android:id="@+id/webView"
+                app:layout_constraintTop_toBottomOf="@id/tvVideos"
+                app:layout_constraintStart_toStartOf="@id/tvVideos"
+                app:layout_constraintEnd_toEndOf="@id/tvVideos"
+                android:layout_width="match_parent"
+                android:layout_height="250sp"/>
             <TextView
                 android:id="@+id/tvSimilar"
                 android:layout_width="match_parent"
@@ -164,9 +183,9 @@
                 android:textColor="@color/white"
                 android:textSize="28sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"
-                app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
-                app:layout_constraintTop_toBottomOf="@+id/categoryView" />
+                app:layout_constraintEnd_toEndOf="@+id/webView"
+                app:layout_constraintStart_toStartOf="@+id/webView"
+                app:layout_constraintTop_toBottomOf="@+id/webView" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
