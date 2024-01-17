@@ -80,7 +80,8 @@ public class ResetActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Password reset email sent. Check your email.", Toast.LENGTH_SHORT).show();
-                                startCountdownTimer(10000);
+                                Intent intent = new Intent(ResetActivity.this, LoginActivity.class);
+                                startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), "Failed to send password reset email. Check your email and try again.", Toast.LENGTH_SHORT).show();
                             }
@@ -89,26 +90,7 @@ public class ResetActivity extends AppCompatActivity {
 
         }
     }
-    private void startCountdownTimer(long millisInFuture) {
-        countDownTimer = new CountDownTimer(millisInFuture, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-            }
-            @Override
-            public void onFinish() {
-                Intent intent = new Intent(ResetActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }.start();
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
-        }
-    }
+
 
     private boolean validate(String email, TextInputLayout emailInputLayout) {
         boolean isEmailValid = isValidEmail(email);

@@ -107,7 +107,7 @@ public class HomeFragment extends Fragment {
         mRequestQueue = Volley.newRequestQueue(requireContext());
         loading2.setVisibility(View.VISIBLE);
 
-        mStringRequest2 = new StringRequest(Request.Method.GET,   api.BASE_URL + "upcoming?api_key=" + api.API_KEY,
+        mStringRequest2 = new StringRequest(Request.Method.GET,  api.BASE_URL + "upcoming?api_key=" + api.API_KEY,
                 response -> {
                     Gson gson = new Gson();
                     loading2.setVisibility(View.GONE);
@@ -176,10 +176,10 @@ public class HomeFragment extends Fragment {
         viewPager2 = view.findViewById(R.id.viewPagerSlider);
         recyclerViewNowPlaying = view.findViewById(R.id.view1);
         recyclerViewNowPlaying.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerViewTrending = view.findViewById(R.id.view3);
-        recyclerViewTrending.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerViewUpcoming = view.findViewById(R.id.view2);
         recyclerViewUpcoming.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerViewTrending = view.findViewById(R.id.view3);
+        recyclerViewTrending.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         loading1 = view.findViewById(R.id.progressBar);
         loading2 = view.findViewById(R.id.progressBar2);
         loading3 = view.findViewById(R.id.progressBar3);

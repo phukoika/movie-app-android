@@ -62,7 +62,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/view1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:clipToPadding="false"
                     android:paddingHorizontal="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -93,12 +93,11 @@
                 android:textStyle="bold" />
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
-
+                android:layout_height="match_parent">
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/view2"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:clipToPadding="false"
                     android:paddingHorizontal="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -117,20 +116,19 @@
                     app:layout_constraintTop_toTopOf="@id/view2"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
-                android:id="@+id/tvTrending"
+                android:id="@+id/tvTopRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="16dp"
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="Top rate"
+                android:text="Top Rate"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:textStyle="bold" />
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/view3"
                     android:layout_width="match_parent"
@@ -138,7 +136,6 @@
                     android:clipToPadding="false"
                     android:paddingHorizontal="16dp"
                     android:paddingBottom="70dp"
-
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
