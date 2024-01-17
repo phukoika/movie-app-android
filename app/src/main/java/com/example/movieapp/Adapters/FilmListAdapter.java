@@ -46,7 +46,6 @@ public class FilmListAdapter extends RecyclerView.Adapter<FilmListAdapter.ViewHo
                 .load(items.getResults().get(position).getPosterPath())
                 .apply(requestOptions)
                 .into(holder.img);
-        Log.e("this:", items.getResults().get(position).getPosterPath());
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(holder.itemView.getContext(), DetailFilmActivity.class);
             intent.putExtra("id", items.getResults().get(position).getId());

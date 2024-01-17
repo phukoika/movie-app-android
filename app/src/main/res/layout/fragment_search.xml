@@ -16,18 +16,19 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
+
                 <EditText
+                    android:id="@+id/editTextSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/dark_bg"
                     android:drawablePadding="16dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:paddingStart="16dp"
-                    android:paddingVertical="16dp"
                     android:hint="Search here"
+                    android:paddingVertical="16dp"
+                    android:paddingStart="16dp"
                     android:textColor="@color/white"
-                    android:textColorHint="#999999"
-                    android:id="@+id/editTextSearch"
-                    android:background="@color/dark_bg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:textColorHint="#999999" />
 
                 <Button
                     android:id="@+id/btnSearch"

@@ -194,7 +194,6 @@ public class HomeFragment extends Fragment {
         sendRequestNowPlaying();
         sendRequestUpcoming();
         sendRequestTopRate();
-
         return view;
     }
 }

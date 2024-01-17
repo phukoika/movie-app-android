@@ -7,9 +7,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class ListFilm {
 
-    @SerializedName("results")
-    @Expose
-    private List<Result> results;
+        @SerializedName("results")
+        @Expose
+        private List<Result> results;
 
     public List<Result> getResults() {
         return results;

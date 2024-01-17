@@ -102,6 +102,8 @@ public class DetailFilmActivity extends AppCompatActivity {
 
         }, error -> Log.i("TAG:", "Error:" + error.toString()));
         mRequestQueue.add(mStringRequest);
+        loadVideoTrailer(idFilm);
+
     }
 
     private void initView() {
@@ -120,12 +122,6 @@ public class DetailFilmActivity extends AppCompatActivity {
         recyclerViewCategory.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         backImg.setOnClickListener(v -> finish());
-        loadVideoTrailer(idFilm);
-//        String video = "<iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/oAPRPQQeumA\" title=\"[FANCAM] - WXRDIE &amp; GANG | LIVE AT 1900 LE THÉÂTRE 12/01/2024 (FULL SHOW)\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";
-//        webView.loadData(video, "text/html", "utf-8");
-//        webView.getSettings().setJavaScriptEnabled(true);
-//        webView.setWebViewClient(new WebViewClient());
-
     }
 
     private void loadVideoTrailer(int idFilm) {
