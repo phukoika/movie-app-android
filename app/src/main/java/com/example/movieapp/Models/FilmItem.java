@@ -4,6 +4,8 @@ package com.example.movieapp.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class FilmItem {
     @SerializedName("original_title")
     @Expose
@@ -16,17 +18,16 @@ public class FilmItem {
     @SerializedName("release_date")
     @Expose
     private String releaseDate;
+    @SerializedName("overview")
+    @Expose
+    private String overview;
 
     @SerializedName("vote_average")
     @Expose
     private double voteAverage;
-
-    public FilmItem(String originalTitle, String posterPath, String releaseDate, double voteAverage) {
-        this.originalTitle = originalTitle;
-        this.posterPath = posterPath;
-        this.releaseDate = releaseDate;
-        this.voteAverage = voteAverage;
-    }
+    @SerializedName("genres")
+    @Expose
+    private List<Genres> genres;
 
     public String getOriginalTitle() {
         return originalTitle;
@@ -42,5 +43,10 @@ public class FilmItem {
 
     public double getVoteAverage() {
         return voteAverage;
+    }
+
+    public String getOverview() {return overview;}
+    public List<Genres> getGenres() {
+        return genres;
     }
 }

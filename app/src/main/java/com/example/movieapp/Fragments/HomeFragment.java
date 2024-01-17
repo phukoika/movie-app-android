@@ -24,6 +24,7 @@ import com.example.movieapp.Adapters.SliderAdapter;
 import com.example.movieapp.Models.ListFilm;
 import com.example.movieapp.Models.SliderItem;
 import com.example.movieapp.R;
+import com.example.movieapp.ultis.api;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -86,7 +87,7 @@ public class HomeFragment extends Fragment {
         mRequestQueue = Volley.newRequestQueue(requireContext());
         loading3.setVisibility(View.VISIBLE);
 
-        mStringRequest3 = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/top_rated?api_key=fc2329e047ad9dc86a7e9f65dfd8b9e5",
+        mStringRequest3 = new StringRequest(Request.Method.GET,  api.BASE_URL + "top_rated?api_key=" + api.API_KEY,
                 response -> {
                     Gson gson = new Gson();
                     loading3.setVisibility(View.GONE);
@@ -106,7 +107,7 @@ public class HomeFragment extends Fragment {
         mRequestQueue = Volley.newRequestQueue(requireContext());
         loading2.setVisibility(View.VISIBLE);
 
-        mStringRequest2 = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/upcoming?api_key=fc2329e047ad9dc86a7e9f65dfd8b9e5",
+        mStringRequest2 = new StringRequest(Request.Method.GET,   api.BASE_URL + "upcoming?api_key=" + api.API_KEY,
                 response -> {
                     Gson gson = new Gson();
                     loading2.setVisibility(View.GONE);
@@ -126,7 +127,7 @@ public class HomeFragment extends Fragment {
         mRequestQueue = Volley.newRequestQueue(requireContext());
         loading1.setVisibility(View.VISIBLE);
 
-        mStringRequest = new StringRequest(Request.Method.GET, "https://api.themoviedb.org/3/movie/now_playing?api_key=fc2329e047ad9dc86a7e9f65dfd8b9e5",
+        mStringRequest = new StringRequest(Request.Method.GET, api.BASE_URL + "now_playing?api_key=" + api.API_KEY,
                 response -> {
                     Gson gson = new Gson();
                     loading1.setVisibility(View.GONE);
@@ -188,7 +189,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
         initView(view);
         banner();
         sendRequestNowPlaying();
